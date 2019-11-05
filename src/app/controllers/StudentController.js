@@ -8,6 +8,9 @@ class StudentController {
       email: Yup.string()
         .email()
         .required(),
+      height: Yup.number(),
+      age: Yup.number().integer(),
+      weight: Yup.number(),
     });
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Validation fails' });
@@ -43,6 +46,9 @@ class StudentController {
     const schema = Yup.object().shape({
       name: Yup.string(),
       email: Yup.string().email(),
+      height: Yup.number(),
+      age: Yup.number().integer(),
+      weight: Yup.number(),
     });
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Validation fails' });

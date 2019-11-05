@@ -2,6 +2,8 @@ import * as Yup from 'yup';
 import User from '../models/User';
 
 class UserController {
+  // removido metodo de criacao pois admin nao podera se cadastrar
+  // metodo update opcional
   async update(req, res) {
     // console.log(req.userId);
     const schema = Yup.object().shape({
