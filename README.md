@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-  Desafio 2: Gympoint, o início
+  Desafio 3: Gympoint, o início
 </h3>
 
 <blockquote align="center">“Desafio Concluido!”!</blockquote>
