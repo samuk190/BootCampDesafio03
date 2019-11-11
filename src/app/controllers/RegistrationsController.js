@@ -39,7 +39,7 @@ class RegistrationsController {
       return res.status(400).json({error: 'Plan does not exist'});
     }
 
-    const studentExists= await Student.findOne({where: {id: req.body.student_id}
+    const studentExists= await Student.findOne({where: {id: student_id}
     });
 
     if(!studentExists){
@@ -48,26 +48,21 @@ class RegistrationsController {
       // que ja foi deletado
       return res.status(400).json({error: 'Student does not exist'});
     }
+
     const { duration, price } = await Plan.findByPk(plan_id)
      const parsedStartDate = parseISO(start_date)
      const parsedEndDate = addMonths(parsedStartDate, duration)
 
     const totalprice = duration * price;
 
-      const { id } = await Registration.create(
-      req.body,{student_id,plan_id,start_date, end_date: parsedEndDate, price: totalprice }
-    );
+    //   const { id } = await Registration.create(
+    //   req.body,{student_id,plan_id,start_date, end_date: parsedEndDate, price: 1 }
+    // );
+    const registrationSave = await Registration.create({student_id,plan_id,start_date:start_date,end_date:parsedEndDate, price: totalprice });
 
+    return res.json({registrationSave}) ;
     // cadastro
-    return res.json({
-      id,
-      start_date,
-      student_id,
-      plan_id,
-      end_date,
-      price,
 
-    });
   }
 
   async update(req, res) {
@@ -100,10 +95,9 @@ class RegistrationsController {
 
     const { } = await plan.update(req.body);
     return res.json({
-      planId,
       title,
       duration,
-      price,
+      totalprice,
 
     });
   }
