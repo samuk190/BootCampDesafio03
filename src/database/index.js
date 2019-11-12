@@ -5,7 +5,9 @@ import Student from '../app/models/Student';
 import databaseConfig from '../config/database'; // importar conexão
 import Plan from '../app/models/Plan';
 import Registration from '../app/models/Registration';
-const models = [User, Student, Plan, Registration];
+import Checkin from '../app/models/Checkin';
+import HelpOrder from '../app/models/HelpOrder';
+const models = [User, Student, Plan, Registration, Checkin,HelpOrder];
 class Database {
   constructor() {
     this.init();
