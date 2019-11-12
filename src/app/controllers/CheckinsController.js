@@ -28,7 +28,7 @@ class CheckinsController {
     //   return res.status(400).json({ error: 'Validation fails' });
     // }
     const student_id  = req.params.id;
-    console.log(student_id);
+
     // const PlanExists = await Plan.findOne({
     //   where: { title: req.body.title },
     // });

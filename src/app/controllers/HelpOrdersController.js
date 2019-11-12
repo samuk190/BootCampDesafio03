@@ -1,8 +1,8 @@
 import * as Yup from 'yup';
 import Student from '../models/Student';
 import HelpOrder from '../models/HelpOrder';
-import { Op } from 'sequelize';
-import { subDays, parseISO,  } from 'date-fns';
+import AnswerMail from '../jobs/AnswerMail';
+import Queue from '../../lib/Queue';
 class HelpOrdersController {
   async noanswer(req,res){
     const { page = 1 } = req.query;
@@ -29,8 +29,42 @@ class HelpOrdersController {
    return res.json(helporders);
   }
 async answer(req,res){
+ // console.log(req.userId);
+ const schema = Yup.object().shape({
+  answer: Yup.string().required(),
 
-  res.status(400);
+});
+if (!(await schema.isValid(req.body))) {
+  return res.status(400).json({ error: 'Validation fails' });
+}
+
+const answer = req.body.answer;
+const id = req.params.id;
+
+
+const helpOrderExist = await HelpOrder.findByPk(id);
+const helpOrder = await HelpOrder.findByPk(req.params.id, { include: [
+  {
+    model: Student,
+    as: 'student',
+    attributes: ['id', 'email'],
+  },
+],
+});
+
+if (!helpOrderExist) {
+  return res
+    .status(401)
+    .json({ error: 'Help Order not Found' });
+}
+await Queue.add(AnswerMail.key, {
+  helpOrder,
+});
+const helpOrderSave = await helpOrder.update({answer,answer_at: new Date()
+
+});
+return res.json(helpOrderSave);
+
 }
   async store(req, res) {
     const schema = Yup.object().shape({
@@ -56,7 +90,7 @@ async answer(req,res){
 
 
 
-    const helpOrderSave = await HelpOrder.create({question,student_id,answer_at: new Date()});
+    const helpOrderSave = await HelpOrder.create({question,student_id});
 
 
 

@@ -20,7 +20,7 @@ class HelpOrder extends Model {
   static associate(models) {
     //não a necessidade de colocar "as", mas deixei para não ter que escrever
     //caso haja mudanças nas associações que envolvam o uso dessas foreign keys.
-       this.belongsTo(models.Student, { foreignKey: 'student_id', as: 'Student' });
+       this.belongsTo(models.Student, { foreignKey: 'student_id', as: 'student' });
   }
 }
 export default HelpOrder;
