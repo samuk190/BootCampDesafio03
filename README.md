@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-  Desafio 3: Gympoint, o início
+  Desafio 3: Gympoint, continuando a aplicação
 </h3>
 
 <blockquote align="center">“Desafio Concluido!”!</blockquote>
@@ -12,7 +12,7 @@
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/rocketseat/bootcamp-gostack-desafio-02?color=%2304D361">
 
   <a href="https://rocketseat.com.br">
-    <img alt="Made by Rocketseat" src="https://img.shields.io/badge/made%20by-Rocketseat-%2304D361">
+    <img alt="Made by Samuk190" src="https://img.shields.io/badge/made%20by-Rocketseat-%2304D361">
   </a>
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
@@ -23,4 +23,10 @@
 </p>
 
 <p align="center">
+##  Sobre o desafio
 
+Nesse desafio coloquei em prática meus conhecimentos em node.js aprendidos nas aulas da RocketSeat.
+
+Para executar esse projeto é necessário ter Node LTS e Yarn,
+Execute yarn run dev(sistema) e em outro terminal execute yarn dev queue (sistema de e-mail)
+Edite as configurações do banco de dados, Redis e seu servidor SMTP, no .env
