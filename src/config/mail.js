@@ -8,7 +8,7 @@ export default {
     pass: process.env.MAIL_PASS,
   },
   default: {
-    from: 'Equipe GymPoint <noreply@gympoint.com>',
+    from: 'Equipe GymPoint <noreply@gobarber.com>',
   },
 };
 // amazon SES

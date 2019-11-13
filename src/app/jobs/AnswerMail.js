@@ -20,6 +20,7 @@ class AnswerMail {
       context: {
         student: helpOrder.student.id,
         answer: helpOrder.answer,
+        question: helpOrder.question,
         answer_at: format(
           parseISO(helpOrder.answer_at),
           "'dia' dd 'de' MMMM,'ás' H:mm'h'",
@@ -28,13 +29,13 @@ class AnswerMail {
           }
         ),
       },
-      created: format(
-        parseISO(helpOrder.created_at),
-        "'dia' dd 'de' MMMM,'ás' H:mm'h'",
-        {
-          locale: pt,
-        }
-      ),
+      // created: format(
+      //   parseISO(helpOrder.created_at),
+      //   "'dia' dd 'de' MMMM,'ás' H:mm'h'",
+      //   {
+      //     locale: pt,
+      //   }
+      // ),
 
     });
   }
