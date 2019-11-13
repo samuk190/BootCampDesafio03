@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-##  Sobre o desafio
+  Sobre o desafio
 
 Nesse desafio coloquei em prática meus conhecimentos em node.js aprendidos nas aulas da RocketSeat.
 
