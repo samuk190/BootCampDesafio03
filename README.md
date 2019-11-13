@@ -27,6 +27,8 @@
 
 Nesse desafio coloquei em prática meus conhecimentos em node.js aprendidos nas aulas da RocketSeat.
 
-Para executar esse projeto é necessário ter Node LTS e Yarn,
+Para executar esse projeto é necessário ter Node LTS e NPM ou Yarn,
 Execute yarn run dev(sistema) e em outro terminal execute yarn dev queue (sistema de e-mail)
 Edite as configurações do banco de dados, Redis e seu servidor SMTP, no .env
+Não esqueça de baixar as dependencias do projeto!
+Yarn upgrade
